@@ -1,0 +1,29 @@
+{
+  "name": "datacountries",
+  "version": "1.0.0",
+  "description": "api payant qui liste les inforamtions  des touts les countries",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev": "ts-node-dev src/app.ts",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.2.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "rate-limiter-flexible": "^7.2.0",
+    "swagger-ui-express": "^5.0.1",
+    "ts-jest": "^29.4.1",
+    "yamljs": "^0.3.0"
+  }
+}
