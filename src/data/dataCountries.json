@@ -1,0 +1,102 @@
+[
+    {
+      "name": "France",
+      "isoCode": "FR",
+      "capital": "Paris",
+      "region": "Europe",
+      "population": 67391582,
+      "languages": ["French"],
+      "currency": "EUR",
+      "flag": "https://flagcdn.com/fr.svg"
+    },
+    {
+      "name": "Germany",
+      "isoCode": "DE",
+      "capital": "Berlin",
+      "region": "Europe",
+      "population": 83240525,
+      "languages": ["German"],
+      "currency": "EUR",
+      "flag": "https://flagcdn.com/de.svg"
+    },
+    {
+      "name": "Japan",
+      "isoCode": "JP",
+      "capital": "Tokyo",
+      "region": "Asia",
+      "population": 125584838,
+      "languages": ["Japanese"],
+      "currency": "JPY",
+      "flag": "https://flagcdn.com/jp.svg"
+    },
+    {
+      "name": "Brazil",
+      "isoCode": "BR",
+      "capital": "Brasília",
+      "region": "South America",
+      "population": 213993437,
+      "languages": ["Portuguese"],
+      "currency": "BRL",
+      "flag": "https://flagcdn.com/br.svg"
+    },
+    {
+      "name": "South Africa",
+      "isoCode": "ZA",
+      "capital": "Pretoria",
+      "region": "Africa",
+      "population": 59308690,
+      "languages": ["Afrikaans", "English", "Zulu", "Xhosa", "Southern Sotho"],
+      "currency": "ZAR",
+      "flag": "https://flagcdn.com/za.svg"
+    },
+    {
+      "name": "Canada",
+      "isoCode": "CA",
+      "capital": "Ottawa",
+      "region": "North America",
+      "population": 38005238,
+      "languages": ["English", "French"],
+      "currency": "CAD",
+      "flag": "https://flagcdn.com/ca.svg"
+    },
+    {
+      "name": "Australia",
+      "isoCode": "AU",
+      "capital": "Canberra",
+      "region": "Oceania",
+      "population": 25687041,
+      "languages": ["English"],
+      "currency": "AUD",
+      "flag": "https://flagcdn.com/au.svg"
+    },
+    {
+      "name": "India",
+      "isoCode": "IN",
+      "capital": "New Delhi",
+      "region": "Asia",
+      "population": 1393409038,
+      "languages": ["Hindi", "English"],
+      "currency": "INR",
+      "flag": "https://flagcdn.com/in.svg"
+    },
+    {
+      "name": "Egypt",
+      "isoCode": "EG",
+      "capital": "Cairo",
+      "region": "Africa",
+      "population": 104258327,
+      "languages": ["Arabic"],
+      "currency": "EGP",
+      "flag": "https://flagcdn.com/eg.svg"
+    },
+    {
+      "name": "Mexico",
+      "isoCode": "MX",
+      "capital": "Mexico City",
+      "region": "North America",
+      "population": 128932753,
+      "languages": ["Spanish"],
+      "currency": "MXN",
+      "flag": "https://flagcdn.com/mx.svg"
+    }
+  ]

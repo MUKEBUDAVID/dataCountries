@@ -2,18 +2,26 @@
   "name": "datacountries",
   "version": "1.0.0",
   "description": "api payant qui liste les inforamtions  des touts les countries",
-  "main": "index.js",
+  "main": "src/server.ts",
+  "type": "commonjs",
   "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "node dist/app.js",
-    "dev": "ts-node-dev src/app.ts",
-    "test": "jest"
+    "start": "node dist/server.js",
+     "test": "jest"
   },
+ 
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.2.0",
+    "@types/swagger-ui": "^5.21.1",
+    "@types/swagger-ui-express": "^4.1.8",
+    "@types/yamljs": "^0.2.34",
     "typescript": "^5.9.2"
   },
   "dependencies": {
@@ -21,9 +29,11 @@
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
     "rate-limiter-flexible": "^7.2.0",
     "swagger-ui-express": "^5.0.1",
     "ts-jest": "^29.4.1",
+    "ts-node-dev": "^2.0.0",
     "yamljs": "^0.3.0"
   }
 }

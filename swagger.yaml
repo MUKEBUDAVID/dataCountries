@@ -1,0 +1,188 @@
+openapi: 3.0.0
+info:
+  title: Countries API
+  description: API payante pour les données des pays
+  version: 1.0.0
+servers:
+  - url: https://api.votredomaine.com/v1
+    description: Production server
+  - url: http://localhost:3000/v1
+    description: Development server
+tags:
+  - name: Countries
+    description: Opérations sur les pays
+paths:
+  /countries:
+    get:
+      tags: [Countries]
+      summary: Liste des pays
+      description: Retourne une liste paginée des pays
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/region'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/name'
+        - $ref: '#/components/parameters/sortBy'
+        - $ref: '#/components/parameters/sortOrder'
+      responses:
+        200:
+          description: Liste des pays
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountriesResponse'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        429:
+          $ref: '#/components/responses/RateLimitExceeded'
+      security:
+        - apiKey: []
+components:
+  parameters:
+    page:
+      name: page
+      in: query
+      description: Numéro de page
+      required: false
+      schema:
+        type: integer
+        default: 1
+    limit:
+      name: limit
+      in: query
+      description: Nombre d'éléments par page
+      required: false
+      schema:
+        type: integer
+        default: 10
+    region:
+      name: region
+      in: query
+      description: Filtrer par région
+      required: false
+      schema:
+        type: string
+    language:
+      name: language
+      in: query
+      description: Filtrer par langue
+      required: false
+      schema:
+        type: string
+    currency:
+      name: currency
+      in: query
+      description: Filtrer par code de devise
+      required: false
+      schema:
+        type: string
+    name:
+      name: name
+      in: query
+      description: Filtrer par nom de pays (recherche insensible à la casse)
+      required: false
+      schema:
+        type: string
+    sortBy:
+      name: sortBy
+      in: query
+      description: Champ de tri
+      required: false
+      schema:
+        type: string
+        enum: [name, population, area]
+    sortOrder:
+      name: sortOrder
+      in: query
+      description: Ordre de tri
+      required: false
+      schema:
+        type: string
+        enum: [asc, desc]
+        default: asc
+  schemas:
+    Country:
+      type: object
+      properties:
+        name:
+          type: string
+        isoCode:
+          type: string
+        capital:
+          type: string
+        region:
+          type: string
+        subregion:
+          type: string
+        population:
+          type: number
+        area:
+          type: number
+        languages:
+          type: array
+          items:
+            type: string
+        currencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Currency'
+        flag:
+          type: string
+        timezones:
+          type: array
+          items:
+            type: string
+        borders:
+          type: array
+          items:
+            type: string
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+    Currency:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+    Coordinates:
+      type: object
+      properties:
+        lat:
+          type: number
+        lng:
+          type: number
+    CountriesResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+            page:
+              type: integer
+            limit:
+              type: integer
+            totalPages:
+              type: integer
+  responses:
+    Unauthorized:
+      description: Clé API manquante ou invalide
+    RateLimitExceeded:
+      description: Limite de requêtes dépassée
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: X-API-KEY
+      in: header
