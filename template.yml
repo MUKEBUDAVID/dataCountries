@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Parameters:
+  Stage:
+    Type: String
+    Default: dev
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 512
+    Runtime: nodejs18.x
+    Environment:
+      Variables:
+        NODE_ENV: !Ref Stage
+        STAGE: !Ref Stage
+
+Resources:
+  ExpressApi:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/index.handler 
+      CodeUri: ./dist
+      Runtime: nodejs18.x
+      Events:
+        ApiRoot:
+          Type: Api
+          Properties:
+            Path: /
+            Method: ANY
+        ApiProxy:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+      Policies:
+        - AWSLambdaBasicExecutionRole
+
+Outputs:
+  ApiUrl:
+    Description: "URL de l'API"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/${Stage}/"
+    Export:
+      Name: !Sub "${AWS::StackName}-ApiUrl"

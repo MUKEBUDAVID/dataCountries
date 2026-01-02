@@ -6,12 +6,12 @@ import countriesRouter from "./routes/countries.route"
 
 // import authMiddleware from"./middlewares/auth.middleware" ;
 // import  YAML from "yamljs" ;
-import dotenv from"dotenv";
+// import dotenv from"dotenv";
 // import { rateLimiter } from"./middlewares/rateLimiter.middleware";
 
 const app = express();
 
-dotenv.config();
+// dotenv.config();
 
 
 

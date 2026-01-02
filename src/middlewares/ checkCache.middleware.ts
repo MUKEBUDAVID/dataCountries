@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { Request,Response } from "express";
+import { Request,Response,NextFunction } from "express";
 
 // 1. Cache en mémoire
 export let countriesCache: any = null;
@@ -24,7 +24,7 @@ const loadCountriesData = () => {
 
 
 // 3. Middleware de vérification du cache
-export const checkCache = (req: Request, res: Response, next: Function) => {
+export const checkCache = (req: Request, res: Response, next: NextFunction) => {
     // Si le cache est vide ou expiré
     if (!countriesCache || (Date.now() - lastCacheUpdate) > CACHE_TTL) {
         loadCountriesData();

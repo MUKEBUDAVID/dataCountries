@@ -1,0 +1,17 @@
+{
+  "Changes": [
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "_0fc8807cdfa5ebd4dca9e86d4c803d59.datacountries.mukebu.com.",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "_d7cb26569a5e570a53aec4a209ba2bea.xlfgrmvvlj.acm-validations.aws."
+          }
+        ]
+      }
+    }
+  ]
+}
